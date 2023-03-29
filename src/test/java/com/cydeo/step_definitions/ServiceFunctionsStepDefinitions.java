@@ -21,22 +21,23 @@ public class ServiceFunctionsStepDefinitions {
     public void user_goes_to_url() {
         Driver.getDriver().get(ConfigurationReader.getProperty("web_url"));
     }
-    @When("User enters valid username")
-    public void user_enters_valid_username() {
-        serviceFunctionsPage.inputUsername.sendKeys(ConfigurationReader.getProperty("username"));
+
+    @When("User enters valid {string} and {string}")
+    public void userEntersValidAnd(String user, String pass) {
+        serviceFunctionsPage.inputUsername.sendKeys(user);
+        serviceFunctionsPage.inputPassword.sendKeys(pass);
     }
-    @When("User enters valid password")
-    public void user_enters_valid_password() {
-        serviceFunctionsPage.inputPassword.sendKeys(ConfigurationReader.getProperty("password"));
-    }
+
     @When("User clicks to Login Button and goes to Home page")
     public void user_clicks_to_login_button_and_goes_to_home_page() {
         serviceFunctionsPage.loginButton.click();
     }
+
     @When("User goes to Services page")
     public void user_goes_to_services_page() {
         serviceFunctionsPage.servicesButton.click();
     }
+
     @When("User clicks to Training tab")
     public void user_clicks_to_training_tab() {
         serviceFunctionsPage.trainingButton.click();
@@ -46,6 +47,7 @@ public class ServiceFunctionsStepDefinitions {
     public void user_clicks_to_my_courses_tab() {
         serviceFunctionsPage.myCoursesButton.click();
     }
+
     @Then("User can display the courses")
     public void userCanDisplayTheCourses() {
         Assert.assertEquals("Course report", serviceFunctionsPage.coursePageTitle.getText());
@@ -92,16 +94,13 @@ public class ServiceFunctionsStepDefinitions {
         serviceFunctionsPage.inputIcq.clear();
         serviceFunctionsPage.inputIcq.sendKeys(icq);
 
-        BrowserUtilities.sleep(3);
         serviceFunctionsPage.saveButton.click();
-        BrowserUtilities.sleep(3);
 
-        Assert.assertEquals(firstName, serviceFunctionsPage.inputFirstName.getText());
-        Assert.assertEquals(lastName, serviceFunctionsPage.inputLastName.getText());
-        Assert.assertEquals(email, serviceFunctionsPage.inputEMail.getText());
-        Assert.assertEquals(webSite, serviceFunctionsPage.inputWebSite.getText());
-        Assert.assertEquals(icq, serviceFunctionsPage.inputIcq.getText());
-
+        Assert.assertEquals(firstName, serviceFunctionsPage.inputFirstName.getAttribute("value"));
+        Assert.assertEquals(lastName, serviceFunctionsPage.inputLastName.getAttribute("value"));
+        Assert.assertEquals(email, serviceFunctionsPage.inputEMail.getAttribute("value"));
+        Assert.assertEquals(webSite, serviceFunctionsPage.inputWebSite.getAttribute("value"));
+        Assert.assertEquals(icq, serviceFunctionsPage.inputIcq.getAttribute("value"));
 
     }
 }
