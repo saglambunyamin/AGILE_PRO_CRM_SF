@@ -1,3 +1,4 @@
+@AGL-400
 Feature: Training functions.
   Agile Story: As a user, I should be able to land on Services menu;
 so that I can use Training functions.
@@ -5,7 +6,7 @@ so that I can use Training functions.
   Background:
   When User goes to url
 
-  @test1, @wip
+ @AGL-397
 Scenario Outline: User can display his or her courses.
 
 When User enters valid "<username>" and "<password>"
@@ -21,7 +22,7 @@ Then User can display the courses
     | hr1@cybertekschool.com              | UserUser |
     | marketing1@cybertekschool.com  | UserUser |
 
-@test2, @wip
+  @AGL-398
 Scenario Outline: User can display his/her grades.
 
 When User enters valid "<username>" and "<password>"
@@ -37,7 +38,7 @@ Then User can display the grades
     | hr1@cybertekschool.com              | UserUser |
     | marketing1@cybertekschool.com  | UserUser |
 
-@test3, @wip
+  @AGL-399
 Scenario Outline: User can edit his/her personal data under Student's Profile
 
 When User enters valid "<username>" and "<password>"
