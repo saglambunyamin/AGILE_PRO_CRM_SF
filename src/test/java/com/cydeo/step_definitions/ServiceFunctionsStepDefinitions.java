@@ -1,7 +1,6 @@
 package com.cydeo.step_definitions;
 
 import com.cydeo.pages.ServiceFunctionsPage;
-import com.cydeo.utilities.BrowserUtilities;
 import com.cydeo.utilities.Driver;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
